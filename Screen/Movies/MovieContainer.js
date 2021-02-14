@@ -1,12 +1,13 @@
 
 import React , { useEffect , useState } from 'react';
 import {View, Text, Button} from "react-native";
-import { movieApi } from "../api" ;
-
+import { movieApi } from "../../api" ;
+import MoviePresenter from "./MoviePresenter";
 
 export default ()=> {  
     
     const [movies , setMovies] = useState({
+       loading : true ,
        nowPlaying : [],
        nowPlayingerror : null,
        popular : [],
@@ -24,6 +25,7 @@ export default ()=> {
        const [upComing , upComingerror] = await movieApi.upComing();
 
        setMovies({
+            loading : false, 
             nowPlaying ,
             nowPlayingerror,
             popular,
@@ -38,12 +40,7 @@ export default ()=> {
     },[]);
 
     return ( 
-        <View style ={{
-            backgroundColor : "black",
-            flex : 1
-        }}>           
-            <Text style={{color:"white"}}>{movies.nowPlaying?.length}</Text>                   
-        </View>
+       <MoviePresenter {...movies}/>
     );    
 } 
 

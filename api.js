@@ -41,3 +41,6 @@ export const tvApi = {
     search : query => getAnything('/search/tv', { query,  language : "ko" , include_adult : true } ) ,
     show : id => getAnything(`/tv/${id}`, { language : "ko" }) , 
 }
+
+
+export const apiImage = path => `https://image.tmdb.org/t/p/w500${path}`;

@@ -38,7 +38,7 @@ export default ( {navigation , route})=>
                         case "Search":
                             iConName += "search" ;
                             break;
-                        case "Favourites":
+                        case "Discovery":
                             iConName += "heart" ;
                             break;
                         default:
@@ -51,7 +51,8 @@ export default ( {navigation , route})=>
             tabBarOptions={{
                 showLabel : false,
                 style :{
-                    backgroundColor : "black" ,                   
+                    backgroundColor : "black" ,   
+                                    
                 }
             }}
         >
@@ -61,7 +62,7 @@ export default ( {navigation , route})=>
             />
             <Tabs.Screen name="Tv" component={Tv}/>
             <Tabs.Screen name="Search" component={Search}/>
-            <Tabs.Screen name="Favourites" component={Favs}/>        
+            <Tabs.Screen name="Discovery" component={Favs}/>        
         </Tabs.Navigator>
     );
 }
